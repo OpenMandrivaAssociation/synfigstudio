@@ -5,7 +5,7 @@
 Name:		synfigstudio
 Summary:	Vector-based 2D animation GUI
 Version:	0.61.09
-Release:	%mkrel 1
+Release:	%mkrel 2
 Source0:	http://downloads.sourceforge.net/synfig/%{name}-%{version}.tar.gz
 URL:		http://www.synfig.org
 License:	GPLv2+
@@ -18,6 +18,7 @@ BuildRequires:	sigc++2.0-devel
 BuildRequires:	libltdl-devel
 BuildRequires:	gettext
 BuildRequires:	cvs
+BuildRequires:	desktop-file-utils
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
@@ -60,6 +61,11 @@ This package contains the graphical user interface for synfig.
 rm -rf %{buildroot}
 %makeinstall_std
 %find_lang %{name}
+
+desktop-file-install --vendor="" \
+  --add-category="X-MandrivaLinux-CrossDesktop" \
+  --add-category="GTK" \
+  --dir %{buildroot}%{_datadir}/applications %{buildroot}%{_datadir}/applications/*
 
 %if %mdkversion < 200900
 %post -n %{libname} -p /sbin/ldconfig
