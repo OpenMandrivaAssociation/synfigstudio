@@ -5,7 +5,7 @@
 Name:		synfigstudio
 Summary:	Vector-based 2D animation GUI
 Version:	0.61.09
-Release:	%mkrel 2
+Release:	%mkrel 3
 Source0:	http://downloads.sourceforge.net/synfig/%{name}-%{version}.tar.gz
 URL:		http://www.synfig.org
 License:	GPLv2+
@@ -66,6 +66,8 @@ desktop-file-install --vendor="" \
   --add-category="X-MandrivaLinux-CrossDesktop" \
   --add-category="GTK" \
   --dir %{buildroot}%{_datadir}/applications %{buildroot}%{_datadir}/applications/*
+
+sed -i -e 's,synfig_icon.png,synfig_icon,g' %{buildroot}%{_datadir}/applications/*
 
 %if %mdkversion < 200900
 %post -n %{libname} -p /sbin/ldconfig
