@@ -62,12 +62,12 @@ rm -rf %{buildroot}
 %makeinstall_std
 %find_lang %{name}
 
+sed -i -e 's,synfig_icon.png,synfig_icon,g' %{buildroot}%{_datadir}/applications/*
+
 desktop-file-install --vendor="" \
   --add-category="X-MandrivaLinux-CrossDesktop" \
   --add-category="GTK" \
   --dir %{buildroot}%{_datadir}/applications %{buildroot}%{_datadir}/applications/*
-
-sed -i -e 's,synfig_icon.png,synfig_icon,g' %{buildroot}%{_datadir}/applications/*
 
 %if %mdkversion < 200900
 %post -n %{libname} -p /sbin/ldconfig
