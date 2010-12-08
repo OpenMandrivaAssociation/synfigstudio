@@ -7,6 +7,7 @@ Summary:	Vector-based 2D animation GUI
 Version:	0.62.00
 Release:	%mkrel 2
 Source0:	http://downloads.sourceforge.net/synfig/%{name}-%{version}.tar.gz
+Patch0:		synfigstudio-0.62.00-fix-build.patch
 URL:		http://www.synfig.org
 License:	GPLv2+
 Group:		Graphics
@@ -52,6 +53,7 @@ This package contains the graphical user interface for synfig.
 
 %prep
 %setup -q
+%patch0 -p0
 
 %build
 %configure2_5x
