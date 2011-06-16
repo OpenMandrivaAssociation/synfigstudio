@@ -5,7 +5,7 @@
 Name:		synfigstudio
 Summary:	Vector-based 2D animation GUI
 Version:	0.62.02
-Release:	%mkrel 1
+Release:	%mkrel 2
 Source0:	http://downloads.sourceforge.net/synfig/%{name}-%{version}.tar.gz
 Patch0:		synfigstudio-0.62.02-fix-build.patch
 URL:		http://www.synfig.org
@@ -20,6 +20,7 @@ BuildRequires:	libltdl-devel
 BuildRequires:	gettext
 BuildRequires:	cvs
 BuildRequires:	desktop-file-utils
+Requires:	synfig
 
 %description
 synfig is a vector based 2D animation renderer. It is designed to be
