@@ -4,20 +4,19 @@
 
 Name:		synfigstudio
 Summary:	Vector-based 2D animation GUI
-Version:	0.62.02
-Release:	%mkrel 2
+Version:	0.63.02
+Release:	%mkrel 1
 Source0:	http://downloads.sourceforge.net/synfig/%{name}-%{version}.tar.gz
-Patch0:		synfigstudio-0.62.02-fix-build.patch
 URL:		http://www.synfig.org
 License:	GPLv2+
 Group:		Graphics
-BuildRequires:	etl >= 0.04.13
-BuildRequires:	synfig-devel >= 0.62.00
+BuildRequires:	etl-devel >= 0.04.14
+BuildRequires:	synfig-devel >= 0.63.00
 BuildRequires:	synfig
 BuildRequires:	gtkmm2.4-devel
 BuildRequires:	sigc++2.0-devel
 BuildRequires:	libltdl-devel
-BuildRequires:	gettext
+BuildRequires:	gettext-devel
 BuildRequires:	cvs
 BuildRequires:	desktop-file-utils
 Requires:	synfig
@@ -25,6 +24,8 @@ Requires:	synfig
 %description
 synfig is a vector based 2D animation renderer. It is designed to be
 capable of producing feature-film quality animation.
+
+This package contains the graphical user interface for synfig.
 
 %package -n %{libname}
 Summary:	Shared library for %{name}
@@ -49,19 +50,20 @@ capable of producing feature-film quality animation.
 This package contains the development files for the shared library
 provided by synfigstudio.
 
-This package contains the graphical user interface for synfig.
-
 %prep
 %setup -q
-%patch0 -p0
 
 %build
-%configure2_5x
+%configure2_5x \
+	--disable-static \
+	--disable-rpath \
+	--disable-update-mimedb
 %make
 								
 %install
 rm -rf %{buildroot}
 %makeinstall_std
+
 %find_lang %{name}
 
 sed -i -e 's,synfig_icon.png,synfig_icon,g' %{buildroot}%{_datadir}/applications/*
@@ -70,6 +72,9 @@ desktop-file-install --vendor="" \
   --add-category="X-MandrivaLinux-CrossDesktop" \
   --add-category="GTK" \
   --dir %{buildroot}%{_datadir}/applications %{buildroot}%{_datadir}/applications/*
+
+# we don' want these
+rm -rf %{buildroot}%{_libdir}/*.la
 
 %clean
 rm -rf %{buildroot}
@@ -81,6 +86,7 @@ rm -rf %{buildroot}
 %{_datadir}/applications/%{name}.desktop
 %{_iconsdir}/hicolor/*/apps/synfig_icon.*
 %{_datadir}/mime-info/%{name}.*
+%{_datadir}/mime/packages/%{name}.xml
 %{_datadir}/pixmaps/*.png
 %{_datadir}/pixmaps/%{name}
 
@@ -91,6 +97,5 @@ rm -rf %{buildroot}
 %files -n %{develname}
 %defattr(-,root,root)
 %{_libdir}/libsynfigapp.so
-%{_libdir}/*.*a
 %{_includedir}/synfigapp-0.0
 
