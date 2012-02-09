@@ -4,7 +4,7 @@
 
 Name:		synfigstudio
 Summary:	Vector-based 2D animation GUI
-Version:	0.63.02
+Version:	0.63.04
 Release:	%mkrel 1
 Source0:	http://downloads.sourceforge.net/synfig/%{name}-%{version}.tar.gz
 URL:		http://www.synfig.org
