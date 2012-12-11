@@ -4,22 +4,23 @@
 
 Name:		synfigstudio
 Summary:	Vector-based 2D animation GUI
-Version:	0.63.04
-Release:	%mkrel 1
-Source0:	http://downloads.sourceforge.net/synfig/%{name}-%{version}.tar.gz
-URL:		http://www.synfig.org
+Version:	0.63.05
+Release:	2
 License:	GPLv2+
 Group:		Graphics
-BuildRequires:	etl-devel >= 0.04.14
-BuildRequires:	synfig-devel >= 0.63.00
-BuildRequires:	synfig
-BuildRequires:	gtkmm2.4-devel
-BuildRequires:	sigc++2.0-devel
-BuildRequires:	libltdl-devel
+URL:		http://www.synfig.org
+Source0:	http://downloads.sourceforge.net/synfig/%{name}-%{version}.tar.gz
+Patch0:		synfigstudio-0.63.05-cflags.patch
 BuildRequires:	gettext-devel
-BuildRequires:	cvs
-BuildRequires:	desktop-file-utils
-Requires:	synfig
+BuildRequires:	pkgconfig(ETL) >= 0.04.15
+BuildRequires:	pkgconfig(gthread-2.0)
+BuildRequires:	pkgconfig(gtkmm-2.4)
+BuildRequires:	pkgconfig(sigc++-2.0)
+BuildRequires:	pkgconfig(synfig) >= 0.63.05
+BuildRequires:	synfig
+#BuildRequires:	x11-font-cursor-misc
+BuildRequires:	fontconfig
+Requires:	synfig >= 0.63.05
 
 %description
 synfig is a vector based 2D animation renderer. It is designed to be
@@ -52,16 +53,17 @@ provided by synfigstudio.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
+autoreconf -fi
 %configure2_5x \
 	--disable-static \
 	--disable-rpath \
 	--disable-update-mimedb
 %make
-								
+
 %install
-rm -rf %{buildroot}
 %makeinstall_std
 
 %find_lang %{name}
@@ -73,14 +75,7 @@ desktop-file-install --vendor="" \
   --add-category="GTK" \
   --dir %{buildroot}%{_datadir}/applications %{buildroot}%{_datadir}/applications/*
 
-# we don' want these
-rm -rf %{buildroot}%{_libdir}/*.la
-
-%clean
-rm -rf %{buildroot}
-
 %files -f %{name}.lang
-%defattr(-,root,root)
 %doc AUTHORS README NEWS TODO
 %{_bindir}/%{name}
 %{_datadir}/applications/%{name}.desktop
@@ -91,11 +86,9 @@ rm -rf %{buildroot}
 %{_datadir}/pixmaps/%{name}
 
 %files -n %{libname}
-%defattr(-,root,root)
 %{_libdir}/libsynfigapp.so.%{major}*
 
 %files -n %{develname}
-%defattr(-,root,root)
 %{_libdir}/libsynfigapp.so
 %{_includedir}/synfigapp-0.0
 

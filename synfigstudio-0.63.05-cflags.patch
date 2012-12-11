@@ -1,0 +1,19 @@
+diff -urN synfigstudio-0.63.05/configure.ac synfigstudio-0.63.05-patched/configure.ac
+--- synfigstudio-0.63.05/configure.ac	2012-04-10 06:35:05.000000000 +1100
++++ synfigstudio-0.63.05-patched/configure.ac	2012-11-16 21:18:09.130277218 +1100
+@@ -32,15 +32,12 @@
+ AC_LANG([C++])
+ 
+ 
+-AC_ARG_DEBUG
+-
+ case "$debug" in
+ 	yes)
+ 		AC_DEFINE(SHOW_EXTRA_INFO,[],[Show extra info in the about dialog])
+ 	;;
+ esac
+ 
+-AC_ARG_OPTIMIZATION
+ AC_ARG_WARNINGS
+ AC_ARG_PROFILE_ARCS
+ AC_ARG_BRANCH_PROBABILITIES
