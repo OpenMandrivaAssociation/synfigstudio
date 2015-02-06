@@ -5,7 +5,7 @@
 Name:		synfigstudio
 Summary:	Vector-based 2D animation GUI
 Version:	0.63.05
-Release:	2
+Release:	3
 License:	GPLv2+
 Group:		Graphics
 URL:		http://www.synfig.org
