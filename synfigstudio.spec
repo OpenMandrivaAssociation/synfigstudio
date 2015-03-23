@@ -4,12 +4,12 @@
 
 Name:		synfigstudio
 Summary:	Vector-based 2D animation GUI
-Version:	0.63.05
-Release:	3
+Version:	0.64.3
+Release:	1
 License:	GPLv2+
 Group:		Graphics
 URL:		http://www.synfig.org
-Source0:	http://downloads.sourceforge.net/synfig/%{name}-%{version}.tar.gz
+Source0:	http://sourceforge.net/projects/synfig/files/releases/0.64.3/source/%{name}-%{version}.tar.gz
 Patch0:		synfigstudio-0.63.05-cflags.patch
 BuildRequires:	gettext-devel
 BuildRequires:	pkgconfig(ETL) >= 0.04.15
