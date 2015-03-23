@@ -16,11 +16,11 @@ BuildRequires:	pkgconfig(ETL) >= 0.04.15
 BuildRequires:	pkgconfig(gthread-2.0)
 BuildRequires:	pkgconfig(gtkmm-2.4)
 BuildRequires:	pkgconfig(sigc++-2.0)
-BuildRequires:	pkgconfig(synfig) >= 0.63.05
-BuildRequires:	synfig
+BuildRequires:	pkgconfig(synfig) >= 0.64.0
+BuildRequires:	synfig  >= 0.64.0
 #BuildRequires:	x11-font-cursor-misc
 BuildRequires:	fontconfig
-Requires:	synfig >= 0.63.05
+Requires:	synfig >= 0.64.0
 
 %description
 synfig is a vector based 2D animation renderer. It is designed to be
