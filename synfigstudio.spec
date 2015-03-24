@@ -12,17 +12,17 @@ URL:		http://www.synfig.org
 Source0:	http://sourceforge.net/projects/synfig/files/releases/0.64.3/source/%{name}-%{version}.tar.gz
 Patch0:		synfigstudio-0.64.3-cflags.patch
 BuildRequires:	gettext-devel
-BuildRequires:	pkgconfig(ETL) >= 0.04.15
+BuildRequires:	pkgconfig(ETL) >= 0.04.17
 BuildRequires:	pkgconfig(gthread-2.0)
 BuildRequires:	pkgconfig(gtkmm-2.4)
 BuildRequires:	pkgconfig(sigc++-2.0)
-BuildRequires:	pkgconfig(synfig) >= 0.64.0
-BuildRequires:	synfig  >= 0.64.0
+BuildRequires:	pkgconfig(synfig) >= 0.64.3
+BuildRequires:	synfig  >= 0.64.3
 BuildRequires:  autoconf
 BuildRequires:  intltool
 BuildRequires:	fontconfig
 BuildRequires:  desktop-file-utils
-Requires:	synfig >= 0.64.0
+Requires:	synfig >= 0.64.3
 
 %description
 synfig is a vector based 2D animation renderer. It is designed to be
