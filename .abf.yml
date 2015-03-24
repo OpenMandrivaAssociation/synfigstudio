@@ -1,3 +1,4 @@
----
-sources:
+removed_sources:
   synfigstudio-0.63.05.tar.gz: 3e8f590b2b1b3cfdef7ecc898fcef3c9254f21e2
+sources:
+  synfigstudio-0.64.3.tar.gz: 63655509a6a5920eb067021730abbb52164436f5

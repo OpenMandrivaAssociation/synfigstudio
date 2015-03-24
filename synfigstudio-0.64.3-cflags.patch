@@ -1,0 +1,29 @@
+diff -urp synfigstudio-0.64.3/configure.ac synfigstudio-0.64.3.fixed/configure.ac
+--- synfigstudio-0.64.3/configure.ac	2009-10-12 11:33:44.000000000 +0200
++++ synfigstudio-0.64.3.fixed/configure.ac	2015-03-23 03:16:09.977442048 +0100
+@@ -31,7 +31,7 @@ AC_PROG_INSTALL
+ AC_LANG([C++])
+ 
+ 
+-AC_ARG_DEBUG
++#AC_ARG_DEBUG
+ 
+ case "$debug" in
+ 	yes)
+@@ -39,11 +39,11 @@ case "$debug" in
+ 	;;
+ esac
+ 
+-AC_ARG_OPTIMIZATION
+-AC_ARG_WARNINGS
+-AC_ARG_PROFILE_ARCS
+-AC_ARG_BRANCH_PROBABILITIES
+-AC_ARG_PROFILING
++#AC_ARG_OPTIMIZATION
++#AC_ARG_WARNINGS
++#AC_ARG_PROFILE_ARCS
++#AC_ARG_BRANCH_PROBABILITIES
++#AC_ARG_PROFILING
+ 
+ AC_ARG_ENABLE(g5opt,[
+   --enable-g5opt           enable optimizations specific to G5 proc],[
