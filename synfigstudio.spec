@@ -81,11 +81,16 @@ desktop-file-install \
 %{_datadir}/mime/packages/%{name}.xml
 %{_datadir}/pixmaps/*.png
 %{_datadir}/pixmaps/%{name}
+%{_datadir}/appdata/synfigstudio.appdata.xml
+%{_datadir}/synfig/plugins/
 
 %files -n %{libname}
+%doc AUTHORS README NEWS TODO
 %{_libdir}/libsynfigapp.so.%{major}*
 
+
 %files -n %{develname}
+%doc AUTHORS README NEWS TODO
 %{_libdir}/libsynfigapp.so
 %{_includedir}/synfigapp-0.0
 
