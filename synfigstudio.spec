@@ -8,7 +8,7 @@ Version:	0.64.3
 Release:	1
 License:	GPLv2+
 Group:		Graphics
-URL:		http://www.synfig.org
+URL:		https://www.synfig.org
 Source0:	http://sourceforge.net/projects/synfig/files/releases/0.64.3/source/%{name}-%{version}.tar.gz
 Patch0:		synfigstudio-0.64.3-cflags.patch
 BuildRequires:	gettext-devel
