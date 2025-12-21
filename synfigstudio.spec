@@ -11,6 +11,10 @@ Group:		Graphics
 URL:		https://www.synfig.org
 Source0:	http://sourceforge.net/projects/synfig/files/releases/0.64.3/source/%{name}-%{version}.tar.gz
 Patch0:		synfigstudio-0.64.3-cflags.patch
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	gettext-devel
 BuildRequires:	pkgconfig(ETL) >= 0.04.17
 BuildRequires:	pkgconfig(gthread-2.0)
